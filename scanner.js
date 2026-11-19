@@ -17,6 +17,8 @@ const CFG = {
   maxPriceChange1hPct: 300,   // skip coins that already went vertical (chasing)
   maxTop10HolderPct: 30,      // GMGN: top 10 wallets hold at most this %
   maxRugRatio: 0.3,           // GMGN: 0–1 rug risk score
+  maxRugcheckScore: 50,       // RugCheck: 0–100, higher = riskier
+  requireRugcheck: true,      // skip coins RugCheck can't check
   maxAlertsPerRun: 5,
   seenDays: 3,                // don't re-alert the same coin for this long
 };
@@ -158,6 +160,47 @@ function securityReject(s) {
   return null;
 }
 
+// 4b) RugCheck safety check (free, no key needed).
+let rcLoggedSample = false;
+async function rugcheck(address) {
+  try {
+    const d = await getJson(`https://api.rugcheck.xyz/v1/tokens/${address}/report/summary`);
+    if (!rcLoggedSample) {
+      // Printed once per run so the fields can be checked in the logs.
+      console.log('RugCheck sample:', JSON.stringify(d).slice(0, 1500));
+      rcLoggedSample = true;
+    }
+    const risks = Array.isArray(d?.risks) ? d.risks : [];
+    return {
+      score: d?.score_normalised,
+      lpLockedPct: d?.lpLockedPct,
+      dangers: risks.filter((r) => String(r?.level).toLowerCase() === 'danger').map((r) => r.name),
+      warnings: risks.filter((r) => String(r?.level).toLowerCase() === 'warn').map((r) => r.name),
+    };
+  } catch (e) {
+    console.log(`RugCheck failed for ${address}: ${e.message}`);
+    return null;
+  }
+}
+
+function rugcheckReject(rc) {
+  if (!rc) return CFG.requireRugcheck ? 'RugCheck unavailable' : null;
+  if (rc.dangers.length) return 'RugCheck danger: ' + rc.dangers.join(', ');
+  const auth = rc.warnings.find((n) => /mint authority|freeze authority/i.test(n || ''));
+  if (auth) return 'RugCheck: ' + auth;
+  if (rc.score !== undefined && Number(rc.score) > CFG.maxRugcheckScore) return 'RugCheck score too high';
+  return null;
+}
+
+const fmtRc = (rc) => {
+  if (!rc) return 'RugCheck: not checked';
+  const lp = rc.lpLockedPct !== undefined ? `${Number(rc.lpLockedPct).toFixed(0)}%` : '?';
+  const warn = rc.warnings.length ? `\nWarnings: ${rc.warnings.join(', ')}` : '';
+  return `RugCheck risk: ${rc.score ?? '?'} (lower = safer) | LP locked: ${lp}${warn}`;
+};
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
 // 5) Simple 0–100 score so the best signals come first.
 function score(p) {
   const buys = p?.txns?.h1?.buys ?? 0;
@@ -182,14 +225,15 @@ const fmtSec = (s) => {
   ].join('\n');
 };
 
-function alertText(p, s, sc) {
+function alertText(p, s, sc, rc) {
   const a = p.baseToken.address;
   const ageH = ((Date.now() - p.pairCreatedAt) / 36e5).toFixed(1);
   return [
     `🔔 ${p.baseToken.symbol} (${p.baseToken.name}) — score ${sc}/100`,
     `MC ${usd(p.marketCap ?? p.fdv)} | Liq ${usd(p.liquidity?.usd)} | Vol 1h ${usd(p.volume?.h1)}`,
     `1h: ${p.priceChange?.h1 ?? 0}% | Buys/Sells 1h: ${p.txns?.h1?.buys}/${p.txns?.h1?.sells} | Age ${ageH}h`,
-    fmtSec(s),
+    fmtRc(rc),
+    ...(s ? [fmtSec(s)] : []),
     ``,
     `Contract (paste in Fomo search):`,
     a,
@@ -235,6 +279,14 @@ async function main() {
   let sent = 0;
   for (const { a, p, sc } of passed) {
     if (sent >= CFG.maxAlertsPerRun) break;
+    const rc = await rugcheck(a);
+    await sleep(1000); // be gentle with the free RugCheck API
+    const rr = rugcheckReject(rc);
+    if (rr) {
+      console.log(`Skip ${p.baseToken.symbol}: ${rr}`);
+      if (rc) seen[a] = Date.now(); // real red flag: don't re-check
+      continue;
+    }
     const s = gmgnSecurity(a);
     const r = securityReject(s);
     if (r) {
@@ -242,7 +294,7 @@ async function main() {
       seen[a] = Date.now(); // security rarely improves, so don't re-check
       continue;
     }
-    await sendTelegram(alertText(p, s, sc));
+    await sendTelegram(alertText(p, s, sc, rc));
     seen[a] = Date.now();
     sent++;
   }
