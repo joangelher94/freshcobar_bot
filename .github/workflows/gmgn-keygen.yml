@@ -1,0 +1,17 @@
+name: gmgn-keygen
+
+# Run this ONCE by hand. It prints a public key to paste into gmgn.ai/ai.
+# The matching private key is deleted right away. A read-only GMGN key
+# doesn't need it, and this scanner never trades.
+
+on: workflow_dispatch
+
+jobs:
+  keygen:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          openssl genpkey -algorithm ed25519 -out key.pem
+          echo "===== COPY EVERYTHING BELOW INTO gmgn.ai/ai ====="
+          openssl pkey -in key.pem -pubout
+          rm -f key.pem
