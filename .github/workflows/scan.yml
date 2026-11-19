@@ -1,0 +1,51 @@
+name: scan
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'   # every 10 minutes (GitHub may run it a few minutes late)
+  workflow_dispatch:          # lets you tap "Run workflow" to test it
+
+permissions:
+  contents: write             # needed to save seen.json
+
+concurrency:
+  group: scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up GMGN (skipped if no key)
+        env:
+          GMGN_API_KEY: ${{ secrets.GMGN_API_KEY }}
+        run: |
+          if [ -n "$GMGN_API_KEY" ]; then
+            npm install -g gmgn-cli
+            mkdir -p ~/.config/gmgn
+            printf 'GMGN_API_KEY=%s\n' "$GMGN_API_KEY" > ~/.config/gmgn/.env
+            chmod 600 ~/.config/gmgn/.env
+          else
+            echo "No GMGN key yet - running DexScreener only."
+          fi
+
+      - name: Run scanner
+        env:
+          GMGN_API_KEY: ${{ secrets.GMGN_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node scanner.js
+
+      - name: Save seen list
+        run: |
+          git config user.name "scanner-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add seen.json
+          git diff --cached --quiet || (git commit -m "update seen list" && git push)
