@@ -22,6 +22,9 @@ const CFG = {
   requireRugcheck: true,      // skip coins RugCheck can't check
   maxAlertsPerRun: 5,
   seenDays: 3,                // don't re-alert the same coin for this long
+  takeProfitMultiple: 2,      // follow-up ping when a coin hits 2x the alert price
+  stopLossPct: -30,           // follow-up ping when a coin drops 30% from the alert price
+  followUpHours: 48,          // watch each alerted coin for this long
 };
 // ---------------------------------------------
 
@@ -301,19 +304,56 @@ function nowET() {
   return { date: `${o.year}-${o.month}-${o.day}`, hour: Number(o.hour) % 24, weekday: o.weekday };
 }
 
-// Fill in the 1h / 4h / 24h price checks that are due.
+function fmtPrice(n) {
+  if (!(n > 0)) return '?';
+  if (n >= 1) return `$${n.toFixed(4)}`;
+  return `$${n.toPrecision(3)}`;
+}
+
+function followUpText(a, p, price, up) {
+  const ch = (price / a.price - 1) * 100;
+  return [
+    up
+      ? `🚀 ${a.symbol} is up ${pct(ch)} since the alert (${(price / a.price).toFixed(1)}x)`
+      : `🔻 ${a.symbol} is down ${Math.abs(ch).toFixed(1)}% since the alert`,
+    `Alert price ${fmtPrice(a.price)} → now ${fmtPrice(price)}`,
+    up
+      ? 'If you bought, think about taking some profit.'
+      : 'If you bought, think about cutting it before it falls further.',
+    '',
+    a.addr,
+    `Chart: ${p?.url || `https://dexscreener.com/solana/${a.addr}`}`,
+  ].join('\n');
+}
+
+// Price checks (1h / 4h / 24h) plus take-profit / stop-loss follow-up alerts.
 async function updateTracker(tr) {
   const now = Date.now();
   const isDue = (a, k, h) => a.checks[k] === undefined && now - a.t >= h * 36e5;
-  const due = tr.alerts.filter((a) => Object.entries(CHECKS).some(([k, h]) => isDue(a, k, h)));
-  if (!due.length) return;
-  const pairs = await getPairs([...new Set(due.map((a) => a.addr))]);
-  for (const a of due) {
-    const price = Number(pairs.get(a.addr)?.priceUsd);
+  const watching = (a) => now - a.t < CFG.followUpHours * 36e5;
+  const active = tr.alerts.filter(
+    (a) => watching(a) || Object.entries(CHECKS).some(([k, h]) => isDue(a, k, h))
+  );
+  if (!active.length) return;
+  const pairs = await getPairs([...new Set(active.map((a) => a.addr))]);
+  for (const a of active) {
+    const p = pairs.get(a.addr);
+    const price = Number(p?.priceUsd);
     for (const [k, h] of Object.entries(CHECKS)) {
       if (!isDue(a, k, h)) continue;
       if (price > 0) a.checks[k] = +((price / a.price - 1) * 100).toFixed(1);
       else if (now - a.t > (h + 6) * 36e5) a.checks[k] = -100; // no price for 6h+: treat as dead
+    }
+    if (!(price > 0) || !watching(a)) continue;
+    a.flags = a.flags || {};
+    a.peak = Math.max(a.peak || 0, price / a.price);
+    if (!a.flags.tp && price >= a.price * CFG.takeProfitMultiple) {
+      await sendTelegram(followUpText(a, p, price, true));
+      a.flags.tp = true;
+    }
+    if (!a.flags.sl && price <= a.price * (1 + CFG.stopLossPct / 100)) {
+      await sendTelegram(followUpText(a, p, price, false));
+      a.flags.sl = true;
     }
   }
 }
@@ -349,6 +389,8 @@ function weeklyReport(tr) {
     `Average: 1h ${pct(avgOf(done, 'h1'))} | 4h ${pct(avgOf(done, 'h4'))} | 24h ${pct(avgOf(done, 'h24'))}`,
     `Median 24h: ${pct(median(done.map((a) => a.checks.h24)))}`,
     `Best: ${best.symbol} ${pct(best.checks.h24)} | Worst: ${worst.symbol} ${pct(worst.checks.h24)}`,
+    `Hit ${CFG.takeProfitMultiple}x at some point: ${done.filter((a) => a.flags?.tp).length} | ` +
+      `Fell ${-CFG.stopLossPct}% at some point: ${done.filter((a) => a.flags?.sl).length}`,
     '',
     'Which alerts did better:',
     group('Score 60+', done.filter((a) => a.score >= 60)),
