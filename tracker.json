@@ -1,0 +1,57 @@
+{
+ "alerts": [
+  {
+   "addr": "82u71wqQSa4NmD1UTTDwKyh5EUm3xe9pMp4UZXhFpump",
+   "symbol": "DAINU",
+   "t": 1795124576438,
+   "price": 0.0007609,
+   "score": 85,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "FSfZuwaRFVcTtVBsiJ45NYK7Mwi3ANRcVT8kpbevtPGj",
+   "symbol": "ONI",
+   "t": 1795124577758,
+   "price": 0.00007861,
+   "score": 70,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "GQngHP8P6s45MxWnU7JsocfV2HjPQdJZmCEAYKpBpump",
+   "symbol": "MANDY",
+   "t": 1795124579078,
+   "price": 0.0009837,
+   "score": 63,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "7bCiddGLe5aM8HE2pigT9jsqkmC1HSPxyXN6GkHEpump",
+   "symbol": "OGTA",
+   "t": 1795124580399,
+   "price": 0.001085,
+   "score": 51,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "2xCd5qHX5tW6pGUo7zfgHSSAnRjJwPA7Sz1Fu4fWcJjX",
+   "symbol": "Mandy",
+   "t": 1795124581752,
+   "price": 0.0001853,
+   "score": 34,
+   "rc": 1,
+   "checks": {}
+  }
+ ],
+ "day": {
+  "date": "2026-11-19",
+  "runs": 1,
+  "checked": 68,
+  "alerts": 5,
+  "sent": false
+ },
+ "weekSent": null
+}
