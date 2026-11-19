@@ -15,6 +15,7 @@ const CFG = {
   maxAgeHours: 72,
   minBuySellRatio1h: 1.2,     // more buys than sells in the last hour
   maxPriceChange1hPct: 300,   // skip coins that already went vertical (chasing)
+  requireSocials: true,       // must have an X/Twitter or Telegram link
   maxTop10HolderPct: 30,      // GMGN: top 10 wallets hold at most this %
   maxRugRatio: 0.3,           // GMGN: 0–1 rug risk score
   maxRugcheckScore: 50,       // RugCheck: 0–100, higher = riskier
@@ -108,7 +109,21 @@ function marketReject(p) {
   if (ageMin > CFG.maxAgeHours * 60) return 'too old';
   if (sells > 0 ? buys / sells < CFG.minBuySellRatio1h : buys < 10) return 'weak buying';
   if (ch > CFG.maxPriceChange1hPct) return 'already pumped';
+  if (CFG.requireSocials && !socialsOf(p).length) return 'no X or Telegram';
   return null;
+}
+
+// X/Twitter and Telegram links from the DexScreener pair info.
+function socialsOf(p) {
+  const list = Array.isArray(p?.info?.socials) ? p.info.socials : [];
+  const out = [];
+  for (const s of list) {
+    const type = String(s?.type || '').toLowerCase();
+    const url = String(s?.url || '');
+    if (type === 'twitter' || type === 'x' || /(^|\/\/)(www\.)?(x|twitter)\.com\//i.test(url)) out.push('X');
+    else if (type === 'telegram' || /(^|\/\/)t\.me\//i.test(url)) out.push('Telegram');
+  }
+  return [...new Set(out)];
 }
 
 // 4) GMGN security check (optional — skipped if no API key is set).
@@ -232,6 +247,7 @@ function alertText(p, s, sc, rc) {
     `🔔 ${p.baseToken.symbol} (${p.baseToken.name}) — score ${sc}/100`,
     `MC ${usd(p.marketCap ?? p.fdv)} | Liq ${usd(p.liquidity?.usd)} | Vol 1h ${usd(p.volume?.h1)}`,
     `1h: ${p.priceChange?.h1 ?? 0}% | Buys/Sells 1h: ${p.txns?.h1?.buys}/${p.txns?.h1?.sells} | Age ${ageH}h`,
+    `Socials: ${socialsOf(p).join(' + ') || 'none'}`,
     fmtRc(rc),
     ...(s ? [fmtSec(s)] : []),
     ``,
@@ -260,8 +276,131 @@ async function sendTelegram(text) {
   if (!res.ok) console.log(`Telegram error ${res.status}: ${await res.text()}`);
 }
 
+// ---------- Paper-trade tracker + daily/weekly reports ----------
+const TRACK_FILE = 'tracker.json';
+const CHECKS = { h1: 1, h4: 4, h24: 24 }; // hours after the alert
+const REPORT_HOUR_ET = 21;                // daily message after 9pm Eastern
+const WEEKLY_DAY = 'Sun';                 // weekly report on Sunday night
+
+function loadTracker() {
+  try {
+    const t = JSON.parse(fs.readFileSync(TRACK_FILE, 'utf8'));
+    return { alerts: [], day: null, weekSent: null, ...t };
+  } catch {
+    return { alerts: [], day: null, weekSent: null };
+  }
+}
+
+function nowET() {
+  const f = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', hour12: false, weekday: 'short',
+  });
+  const o = {};
+  for (const part of f.formatToParts(new Date())) o[part.type] = part.value;
+  return { date: `${o.year}-${o.month}-${o.day}`, hour: Number(o.hour) % 24, weekday: o.weekday };
+}
+
+// Fill in the 1h / 4h / 24h price checks that are due.
+async function updateTracker(tr) {
+  const now = Date.now();
+  const isDue = (a, k, h) => a.checks[k] === undefined && now - a.t >= h * 36e5;
+  const due = tr.alerts.filter((a) => Object.entries(CHECKS).some(([k, h]) => isDue(a, k, h)));
+  if (!due.length) return;
+  const pairs = await getPairs([...new Set(due.map((a) => a.addr))]);
+  for (const a of due) {
+    const price = Number(pairs.get(a.addr)?.priceUsd);
+    for (const [k, h] of Object.entries(CHECKS)) {
+      if (!isDue(a, k, h)) continue;
+      if (price > 0) a.checks[k] = +((price / a.price - 1) * 100).toFixed(1);
+      else if (now - a.t > (h + 6) * 36e5) a.checks[k] = -100; // no price for 6h+: treat as dead
+    }
+  }
+}
+
+const pct = (v) => (v === undefined ? '?' : `${v > 0 ? '+' : ''}${v.toFixed(1)}%`);
+const avgOf = (list, k) => {
+  const v = list.map((a) => a.checks[k]).filter((x) => x !== undefined);
+  return v.length ? v.reduce((s, x) => s + x, 0) / v.length : undefined;
+};
+const median = (nums) => {
+  if (!nums.length) return undefined;
+  const s = [...nums].sort((x, y) => x - y);
+  const m = Math.floor(s.length / 2);
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+};
+
+function weeklyReport(tr) {
+  const weekAgo = Date.now() - 7 * 864e5;
+  const done = tr.alerts.filter((a) => a.t >= weekAgo && a.checks.h24 !== undefined);
+  if (!done.length) return '📊 Weekly paper-trade report\nNo finished alerts yet (each one needs 24h).';
+  const up = (list) => list.filter((a) => a.checks.h24 > 0).length;
+  const group = (name, list) =>
+    list.length
+      ? `${name}: ${list.length} alerts, ${Math.round((100 * up(list)) / list.length)}% up, avg ${pct(avgOf(list, 'h24'))}`
+      : `${name}: none`;
+  const byGain = [...done].sort((x, y) => y.checks.h24 - x.checks.h24);
+  const best = byGain[0];
+  const worst = byGain[byGain.length - 1];
+  return [
+    '📊 Weekly paper-trade report',
+    `Alerts tracked: ${done.length}`,
+    `Up after 24h: ${up(done)}/${done.length} (${Math.round((100 * up(done)) / done.length)}%)`,
+    `Average: 1h ${pct(avgOf(done, 'h1'))} | 4h ${pct(avgOf(done, 'h4'))} | 24h ${pct(avgOf(done, 'h24'))}`,
+    `Median 24h: ${pct(median(done.map((a) => a.checks.h24)))}`,
+    `Best: ${best.symbol} ${pct(best.checks.h24)} | Worst: ${worst.symbol} ${pct(worst.checks.h24)}`,
+    '',
+    'Which alerts did better:',
+    group('Score 60+', done.filter((a) => a.score >= 60)),
+    group('Score under 60', done.filter((a) => a.score < 60)),
+    group('RugCheck 0–20', done.filter((a) => a.rc !== undefined && a.rc <= 20)),
+    group('RugCheck 21+', done.filter((a) => a.rc !== undefined && a.rc > 20)),
+    '',
+    'Uses the price at alert time. Real buys get worse prices plus fees.',
+  ].join('\n');
+}
+
+function dailyText(day, tr) {
+  const tracking = tr.alerts.filter((a) => a.checks.h24 === undefined).length;
+  return [
+    `✅ Scanner running — ${day.date}`,
+    `Scans: ${day.runs} | Coins checked: ${day.checked} | Alerts: ${day.alerts}`,
+    `Coins still being tracked: ${tracking}`,
+  ].join('\n');
+}
+
+async function reports(tr, runStats) {
+  const et = nowET();
+  // New day: send yesterday's summary if it never went out, then start fresh.
+  if (!tr.day || tr.day.date !== et.date) {
+    if (tr.day && !tr.day.sent) await sendTelegram(dailyText(tr.day, tr));
+    tr.day = { date: et.date, runs: 0, checked: 0, alerts: 0, sent: false };
+  }
+  tr.day.runs += 1;
+  tr.day.checked += runStats.checked;
+  tr.day.alerts += runStats.alerts;
+
+  if (et.hour >= REPORT_HOUR_ET && !tr.day.sent) {
+    await sendTelegram(dailyText(tr.day, tr));
+    tr.day.sent = true;
+    if (et.weekday === WEEKLY_DAY && tr.weekSent !== et.date) {
+      await sendTelegram(weeklyReport(tr));
+      tr.weekSent = et.date;
+    }
+  }
+}
+// ----------------------------------------------------------------
+
 async function main() {
   const seen = loadSeen();
+  const tr = loadTracker();
+  tr.alerts = tr.alerts.filter((a) => Date.now() - a.t < 8 * 864e5); // keep ~1 week
+  try {
+    await updateTracker(tr);
+  } catch (e) {
+    console.log(`Tracker update failed: ${e.message}`);
+  }
+
   const candidates = (await getCandidates()).filter((a) => !seen[a]);
   console.log(`Candidates (new): ${candidates.length}`);
 
@@ -297,9 +436,23 @@ async function main() {
     await sendTelegram(alertText(p, s, sc, rc));
     seen[a] = Date.now();
     sent++;
+    const price = Number(p.priceUsd);
+    if (price > 0) {
+      tr.alerts.push({
+        addr: a, symbol: p.baseToken.symbol, t: Date.now(), price,
+        score: sc, rc: rc?.score, checks: {},
+      });
+    }
   }
   console.log(`Alerts sent: ${sent}`);
   fs.writeFileSync(SEEN_FILE, JSON.stringify(seen, null, 1));
+
+  try {
+    await reports(tr, { checked: pairs.size, alerts: sent });
+  } catch (e) {
+    console.log(`Reports failed: ${e.message}`);
+  }
+  fs.writeFileSync(TRACK_FILE, JSON.stringify(tr, null, 1));
 }
 
 main().catch((e) => {
