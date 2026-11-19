@@ -44,13 +44,22 @@
    "score": 34,
    "rc": 1,
    "checks": {}
+  },
+  {
+   "addr": "3hcJWcNvWJu3QBq6PiC8xavYQJJwBnr6adhdpHXppump",
+   "symbol": "FIONA",
+   "t": 1795125888473,
+   "price": 0.00008617,
+   "score": 61,
+   "rc": 1,
+   "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-19",
-  "runs": 1,
-  "checked": 68,
-  "alerts": 5,
+  "runs": 2,
+  "checked": 131,
+  "alerts": 6,
   "sent": false
  },
  "weekSent": null
