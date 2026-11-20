@@ -30,7 +30,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.6471186871899249
+   "peak": 0.9520417249713777
   },
   {
    "addr": "GQngHP8P6s45MxWnU7JsocfV2HjPQdJZmCEAYKpBpump",
@@ -43,7 +43,9 @@
     "h1": 34.3,
     "h4": 28.9
    },
-   "flags": {},
+   "flags": {
+    "sl": true
+   },
    "peak": 1.3428890922029075
   },
   {
@@ -149,7 +151,14 @@
    "price": 0.00008454,
    "score": 52,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -92.1,
+    "h4": -92.1
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.07898036432458008
   },
   {
    "addr": "HF2RBPrfNBk9TxggL2cYZFEKSgirzh5HKCngLENTpump",
@@ -158,7 +167,14 @@
    "price": 0.001176,
    "score": 47,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": 119.9,
+    "h4": 119.9
+   },
+   "flags": {
+    "tp": true
+   },
+   "peak": 2.1989795918367347
   },
   {
    "addr": "44DZsPNJUtUyTkELAFYdwCpe82sEt12HZKrMgK1Spump",
@@ -167,14 +183,39 @@
    "price": 0.001543,
    "score": 36,
    "rc": 1,
+   "checks": {
+    "h1": -99.9,
+    "h4": -99.9
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.001342838626053143
+  },
+  {
+   "addr": "GRMRQSkBGg2Cc8Y9GePNBcJVk49YepWkXUDQBXAMpump",
+   "symbol": "RUDY",
+   "t": 1795193041114,
+   "price": 0.00008337,
+   "score": 40,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "B34nXKzCgsJb9ChLuSHPRpXLE3WFSWyeT8Cqkzzmpump",
+   "symbol": "FIONA",
+   "t": 1795193042610,
+   "price": 0.00184,
+   "score": 39,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-20",
-  "runs": 1,
-  "checked": 58,
-  "alerts": 3,
+  "runs": 2,
+  "checked": 104,
+  "alerts": 5,
   "sent": false
  },
  "weekSent": null
