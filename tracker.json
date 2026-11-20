@@ -8,7 +8,8 @@
    "score": 85,
    "rc": 1,
    "checks": {
-    "h1": -99.8
+    "h1": -99.8,
+    "h4": -99.8
    },
    "flags": {
     "sl": true
@@ -23,12 +24,13 @@
    "score": 70,
    "rc": 1,
    "checks": {
-    "h1": -36.6
+    "h1": -36.6,
+    "h4": -35.3
    },
    "flags": {
     "sl": true
    },
-   "peak": 0.633888818216512
+   "peak": 0.6471186871899249
   },
   {
    "addr": "GQngHP8P6s45MxWnU7JsocfV2HjPQdJZmCEAYKpBpump",
@@ -38,7 +40,8 @@
    "score": 63,
    "rc": 1,
    "checks": {
-    "h1": 34.3
+    "h1": 34.3,
+    "h4": 28.9
    },
    "flags": {},
    "peak": 1.3428890922029075
@@ -51,9 +54,12 @@
    "score": 51,
    "rc": 1,
    "checks": {
-    "h1": 18.7
+    "h1": 18.7,
+    "h4": -45.7
    },
-   "flags": {},
+   "flags": {
+    "sl": true
+   },
    "peak": 1.1870967741935485
   },
   {
@@ -64,9 +70,12 @@
    "score": 34,
    "rc": 1,
    "checks": {
-    "h1": 12.4
+    "h1": 12.4,
+    "h4": -41.8
    },
-   "flags": {},
+   "flags": {
+    "sl": true
+   },
    "peak": 1.124123043712898
   },
   {
@@ -77,7 +86,8 @@
    "score": 61,
    "rc": 1,
    "checks": {
-    "h1": -82.1
+    "h1": -82.1,
+    "h4": -91
    },
    "flags": {
     "sl": true
@@ -91,7 +101,14 @@
    "price": 0.0000834,
    "score": 67,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -75.7,
+    "h4": -75.7
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.24268585131894485
   },
   {
    "addr": "8SacNb6sgiAcscRe4m915B6nL9XX55dk8FS7L532pump",
@@ -100,7 +117,14 @@
    "price": 0.00005855,
    "score": 53,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": 105.1,
+    "h4": 105.1
+   },
+   "flags": {
+    "tp": true
+   },
+   "peak": 2.0512382578992314
   },
   {
    "addr": "DEgAkPNxz3dtMsesD2FDkNA2S6sch5YWfGUDT7R2pump",
@@ -109,14 +133,48 @@
    "price": 0.0002846,
    "score": 52,
    "rc": 7,
+   "checks": {
+    "h1": -48.4,
+    "h4": -48.4
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.5161630358397752
+  },
+  {
+   "addr": "HVxXzEt87QszpC95kMKAfrHdboj4K1TVxYNMzwmbpump",
+   "symbol": "apocry ",
+   "t": 1795161574761,
+   "price": 0.00008454,
+   "score": 52,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "HF2RBPrfNBk9TxggL2cYZFEKSgirzh5HKCngLENTpump",
+   "symbol": "LOOSY",
+   "t": 1795161576089,
+   "price": 0.001176,
+   "score": 47,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "44DZsPNJUtUyTkELAFYdwCpe82sEt12HZKrMgK1Spump",
+   "symbol": "iAgent",
+   "t": 1795161577416,
+   "price": 0.001543,
+   "score": 36,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
-  "date": "2026-11-19",
-  "runs": 3,
-  "checked": 195,
-  "alerts": 9,
+  "date": "2026-11-20",
+  "runs": 1,
+  "checked": 58,
+  "alerts": 3,
   "sent": false
  },
  "weekSent": null
