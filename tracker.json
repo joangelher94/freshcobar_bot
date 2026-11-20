@@ -9,7 +9,8 @@
    "rc": 1,
    "checks": {
     "h1": -99.8,
-    "h4": -99.8
+    "h4": -99.8,
+    "h24": -99.8
    },
    "flags": {
     "sl": true
@@ -25,7 +26,8 @@
    "rc": 1,
    "checks": {
     "h1": -36.6,
-    "h4": -35.3
+    "h4": -35.3,
+    "h24": -49.6
    },
    "flags": {
     "sl": true
@@ -41,7 +43,8 @@
    "rc": 1,
    "checks": {
     "h1": 34.3,
-    "h4": 28.9
+    "h4": 28.9,
+    "h24": -99.9
    },
    "flags": {
     "sl": true
@@ -57,7 +60,8 @@
    "rc": 1,
    "checks": {
     "h1": 18.7,
-    "h4": -45.7
+    "h4": -45.7,
+    "h24": -99.8
    },
    "flags": {
     "sl": true
@@ -73,7 +77,8 @@
    "rc": 1,
    "checks": {
     "h1": 12.4,
-    "h4": -41.8
+    "h4": -41.8,
+    "h24": -43.7
    },
    "flags": {
     "sl": true
@@ -89,7 +94,8 @@
    "rc": 1,
    "checks": {
     "h1": -82.1,
-    "h4": -91
+    "h4": -91,
+    "h24": -95.7
    },
    "flags": {
     "sl": true
@@ -126,7 +132,7 @@
    "flags": {
     "tp": true
    },
-   "peak": 2.0512382578992314
+   "peak": 2.444064901793339
   },
   {
    "addr": "DEgAkPNxz3dtMsesD2FDkNA2S6sch5YWfGUDT7R2pump",
@@ -158,7 +164,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.07898036432458008
+   "peak": 0.10170333569907736
   },
   {
    "addr": "HF2RBPrfNBk9TxggL2cYZFEKSgirzh5HKCngLENTpump",
@@ -172,7 +178,8 @@
     "h4": 119.9
    },
    "flags": {
-    "tp": true
+    "tp": true,
+    "sl": true
    },
    "peak": 2.1989795918367347
   },
@@ -199,7 +206,14 @@
    "price": 0.00008337,
    "score": 40,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -65.3,
+    "h4": -65.3
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.34676742233417296
   },
   {
    "addr": "B34nXKzCgsJb9ChLuSHPRpXLE3WFSWyeT8Cqkzzmpump",
@@ -208,14 +222,57 @@
    "price": 0.00184,
    "score": 39,
    "rc": 1,
+   "checks": {
+    "h1": -38.3,
+    "h4": -38.3
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.6173913043478261
+  },
+  {
+   "addr": "BYKQkHKMWHidNBLQXgt7NX4PLUtJZRYGLWQYkJzPGenX",
+   "symbol": "Trader",
+   "t": 1795215018110,
+   "price": 0.0002637,
+   "score": 80,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "7R4MP6VX7n3RMNhL9zsk5Zu5ibZvwq8npUYnRq7epump",
+   "symbol": "Singularity",
+   "t": 1795215019515,
+   "price": 0.0001544,
+   "score": 54,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "CUfphqswgDK3VP3FX7CiShVCTdGQneFusYRFViABpump",
+   "symbol": "BTC",
+   "t": 1795215020918,
+   "price": 0.0008438,
+   "score": 42,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "7DQQejSWt4bgNmGFFD6QPPUA1YLoMxWhz4roN5CQjE9k",
+   "symbol": "DCTY",
+   "t": 1795215022330,
+   "price": 0.00007089,
+   "score": 22,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-20",
-  "runs": 2,
-  "checked": 104,
-  "alerts": 5,
+  "runs": 3,
+  "checked": 151,
+  "alerts": 9,
   "sent": false
  },
  "weekSent": null
