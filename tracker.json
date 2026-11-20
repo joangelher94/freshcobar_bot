@@ -7,7 +7,13 @@
    "price": 0.0007609,
    "score": 85,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -99.8
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.001846497568668682
   },
   {
    "addr": "FSfZuwaRFVcTtVBsiJ45NYK7Mwi3ANRcVT8kpbevtPGj",
@@ -16,7 +22,13 @@
    "price": 0.00007861,
    "score": 70,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -36.6
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.633888818216512
   },
   {
    "addr": "GQngHP8P6s45MxWnU7JsocfV2HjPQdJZmCEAYKpBpump",
@@ -25,7 +37,11 @@
    "price": 0.0009837,
    "score": 63,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": 34.3
+   },
+   "flags": {},
+   "peak": 1.3428890922029075
   },
   {
    "addr": "7bCiddGLe5aM8HE2pigT9jsqkmC1HSPxyXN6GkHEpump",
@@ -34,7 +50,11 @@
    "price": 0.001085,
    "score": 51,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": 18.7
+   },
+   "flags": {},
+   "peak": 1.1870967741935485
   },
   {
    "addr": "2xCd5qHX5tW6pGUo7zfgHSSAnRjJwPA7Sz1Fu4fWcJjX",
@@ -43,7 +63,11 @@
    "price": 0.0001853,
    "score": 34,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": 12.4
+   },
+   "flags": {},
+   "peak": 1.124123043712898
   },
   {
    "addr": "3hcJWcNvWJu3QBq6PiC8xavYQJJwBnr6adhdpHXppump",
@@ -52,14 +76,47 @@
    "price": 0.00008617,
    "score": 61,
    "rc": 1,
+   "checks": {
+    "h1": -82.1
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.1794127886735523
+  },
+  {
+   "addr": "7q3j8jkgGzVuk7pcQ2uQqWaFwyYzJiCanoRdBtHHpump",
+   "symbol": "COOKIE",
+   "t": 1795136271634,
+   "price": 0.0000834,
+   "score": 67,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "8SacNb6sgiAcscRe4m915B6nL9XX55dk8FS7L532pump",
+   "symbol": "AI",
+   "t": 1795136272961,
+   "price": 0.00005855,
+   "score": 53,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "DEgAkPNxz3dtMsesD2FDkNA2S6sch5YWfGUDT7R2pump",
+   "symbol": "BUCKME",
+   "t": 1795136274286,
+   "price": 0.0002846,
+   "score": 52,
+   "rc": 7,
    "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-19",
-  "runs": 2,
-  "checked": 131,
-  "alerts": 6,
+  "runs": 3,
+  "checked": 195,
+  "alerts": 9,
   "sent": false
  },
  "weekSent": null
