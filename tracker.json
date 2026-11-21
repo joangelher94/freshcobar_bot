@@ -162,7 +162,8 @@
    "rc": 1,
    "checks": {
     "h1": -92.1,
-    "h4": -92.1
+    "h4": -92.1,
+    "h24": -92.2
    },
    "flags": {
     "sl": true
@@ -178,7 +179,8 @@
    "rc": 1,
    "checks": {
     "h1": 119.9,
-    "h4": 119.9
+    "h4": 119.9,
+    "h24": -99.9
    },
    "flags": {
     "tp": true,
@@ -195,7 +197,8 @@
    "rc": 1,
    "checks": {
     "h1": -99.9,
-    "h4": -99.9
+    "h4": -99.9,
+    "h24": -99.9
    },
    "flags": {
     "sl": true
@@ -232,7 +235,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.6173913043478261
+   "peak": 0.6206521739130435
   },
   {
    "addr": "BYKQkHKMWHidNBLQXgt7NX4PLUtJZRYGLWQYkJzPGenX",
@@ -259,7 +262,9 @@
     "h1": -5.8,
     "h4": -5.8
    },
-   "flags": {},
+   "flags": {
+    "sl": true
+   },
    "peak": 0.9417098445595855
   },
   {
@@ -290,7 +295,8 @@
     "h4": 286
    },
    "flags": {
-    "tp": true
+    "tp": true,
+    "sl": true
    },
    "peak": 3.8595006347862886
   },
@@ -301,15 +307,49 @@
    "price": 0.001618,
    "score": 34,
    "rc": 1,
+   "checks": {
+    "h1": -40.8,
+    "h4": -40.8
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.5916563658838071
+  },
+  {
+   "addr": "2TngN4B7XaoGSKsYvttq5bFAdM4Z4xCSnuyRwGiFpump",
+   "symbol": "PUNANI",
+   "t": 1795261368262,
+   "price": 0.002499,
+   "score": 64,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "BjnxH6a3D6HQz1LRPsGX5TZmW3GwstpexSNrK2utpump",
+   "symbol": "XV",
+   "t": 1795261369669,
+   "price": 0.0002513,
+   "score": 54,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "FJKt1LxbWBpTRt9BaDEB6Wr2qL5LZzjFF5sx8rXnpump",
+   "symbol": "MAYA",
+   "t": 1795261371081,
+   "price": 0.003488,
+   "score": 37,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
-  "date": "2026-11-20",
-  "runs": 4,
-  "checked": 199,
-  "alerts": 10,
-  "sent": true
+  "date": "2026-11-21",
+  "runs": 1,
+  "checked": 50,
+  "alerts": 3,
+  "sent": false
  },
  "weekSent": null
 }
