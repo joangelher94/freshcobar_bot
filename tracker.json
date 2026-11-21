@@ -151,7 +151,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.5161630358397752
+   "peak": 0.5888966971187632
   },
   {
    "addr": "HVxXzEt87QszpC95kMKAfrHdboj4K1TVxYNMzwmbpump",
@@ -237,7 +237,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.8961956521739131
+   "peak": 0.9304347826086956
   },
   {
    "addr": "BYKQkHKMWHidNBLQXgt7NX4PLUtJZRYGLWQYkJzPGenX",
@@ -248,7 +248,8 @@
    "rc": 1,
    "checks": {
     "h1": 8.3,
-    "h4": 8.3
+    "h4": 8.3,
+    "h24": -82.1
    },
    "flags": {
     "sl": true
@@ -264,7 +265,8 @@
    "rc": 1,
    "checks": {
     "h1": -5.8,
-    "h4": -5.8
+    "h4": -5.8,
+    "h24": 205.2
    },
    "flags": {
     "sl": true,
@@ -281,7 +283,8 @@
    "rc": 1,
    "checks": {
     "h1": -57.5,
-    "h4": -57.5
+    "h4": -57.5,
+    "h24": -99.8
    },
    "flags": {
     "sl": true
@@ -297,7 +300,8 @@
    "rc": 1,
    "checks": {
     "h1": 286,
-    "h4": 286
+    "h4": 286,
+    "h24": -63.3
    },
    "flags": {
     "tp": true,
@@ -364,15 +368,26 @@
     "h1": -4,
     "h4": -4
    },
-   "flags": {},
+   "flags": {
+    "sl": true
+   },
    "peak": 0.9598623853211008
+  },
+  {
+   "addr": "4mE8dPH1RTqQBT5EPim5Ubt2v2wXZ9zgEDDWmL1o1EYu",
+   "symbol": "SBS",
+   "t": 1795303078015,
+   "price": 0.0001762,
+   "score": 64,
+   "rc": 1,
+   "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-21",
-  "runs": 2,
-  "checked": 99,
-  "alerts": 3,
+  "runs": 3,
+  "checked": 148,
+  "alerts": 4,
   "sent": false
  },
  "weekSent": null
