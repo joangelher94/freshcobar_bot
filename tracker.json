@@ -168,7 +168,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.10170333569907736
+   "peak": 0.1648923586467944
   },
   {
    "addr": "HF2RBPrfNBk9TxggL2cYZFEKSgirzh5HKCngLENTpump",
@@ -214,7 +214,8 @@
    "rc": 1,
    "checks": {
     "h1": -65.3,
-    "h4": -65.3
+    "h4": -65.3,
+    "h24": -69.1
    },
    "flags": {
     "sl": true
@@ -230,12 +231,13 @@
    "rc": 1,
    "checks": {
     "h1": -38.3,
-    "h4": -38.3
+    "h4": -38.3,
+    "h24": -10.4
    },
    "flags": {
     "sl": true
    },
-   "peak": 0.6206521739130435
+   "peak": 0.8961956521739131
   },
   {
    "addr": "BYKQkHKMWHidNBLQXgt7NX4PLUtJZRYGLWQYkJzPGenX",
@@ -248,7 +250,9 @@
     "h1": 8.3,
     "h4": 8.3
    },
-   "flags": {},
+   "flags": {
+    "sl": true
+   },
    "peak": 1.0830489192263937
   },
   {
@@ -263,9 +267,10 @@
     "h4": -5.8
    },
    "flags": {
-    "sl": true
+    "sl": true,
+    "tp": true
    },
-   "peak": 0.9417098445595855
+   "peak": 5.30181347150259
   },
   {
    "addr": "CUfphqswgDK3VP3FX7CiShVCTdGQneFusYRFViABpump",
@@ -314,7 +319,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.5916563658838071
+   "peak": 0.630407911001236
   },
   {
    "addr": "2TngN4B7XaoGSKsYvttq5bFAdM4Z4xCSnuyRwGiFpump",
@@ -323,7 +328,14 @@
    "price": 0.002499,
    "score": 64,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -42.5,
+    "h4": -42.5
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.5746298519407763
   },
   {
    "addr": "BjnxH6a3D6HQz1LRPsGX5TZmW3GwstpexSNrK2utpump",
@@ -332,7 +344,14 @@
    "price": 0.0002513,
    "score": 54,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -60.5,
+    "h4": -60.5
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.3950656585754079
   },
   {
    "addr": "FJKt1LxbWBpTRt9BaDEB6Wr2qL5LZzjFF5sx8rXnpump",
@@ -341,13 +360,18 @@
    "price": 0.003488,
    "score": 37,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -4,
+    "h4": -4
+   },
+   "flags": {},
+   "peak": 0.9598623853211008
   }
  ],
  "day": {
   "date": "2026-11-21",
-  "runs": 1,
-  "checked": 50,
+  "runs": 2,
+  "checked": 99,
   "alerts": 3,
   "sent": false
  },
