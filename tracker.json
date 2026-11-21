@@ -111,7 +111,8 @@
    "rc": 1,
    "checks": {
     "h1": -75.7,
-    "h4": -75.7
+    "h4": -75.7,
+    "h24": -94.1
    },
    "flags": {
     "sl": true
@@ -127,7 +128,8 @@
    "rc": 1,
    "checks": {
     "h1": 105.1,
-    "h4": 105.1
+    "h4": 105.1,
+    "h24": 66
    },
    "flags": {
     "tp": true
@@ -143,7 +145,8 @@
    "rc": 7,
    "checks": {
     "h1": -48.4,
-    "h4": -48.4
+    "h4": -48.4,
+    "h24": -52.5
    },
    "flags": {
     "sl": true
@@ -213,7 +216,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.34676742233417296
+   "peak": 0.503298548638599
   },
   {
    "addr": "B34nXKzCgsJb9ChLuSHPRpXLE3WFSWyeT8Cqkzzmpump",
@@ -238,7 +241,12 @@
    "price": 0.0002637,
    "score": 80,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": 8.3,
+    "h4": 8.3
+   },
+   "flags": {},
+   "peak": 1.0830489192263937
   },
   {
    "addr": "7R4MP6VX7n3RMNhL9zsk5Zu5ibZvwq8npUYnRq7epump",
@@ -247,7 +255,12 @@
    "price": 0.0001544,
    "score": 54,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -5.8,
+    "h4": -5.8
+   },
+   "flags": {},
+   "peak": 0.9417098445595855
   },
   {
    "addr": "CUfphqswgDK3VP3FX7CiShVCTdGQneFusYRFViABpump",
@@ -256,7 +269,14 @@
    "price": 0.0008438,
    "score": 42,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -57.5,
+    "h4": -57.5
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.4247452002844276
   },
   {
    "addr": "7DQQejSWt4bgNmGFFD6QPPUA1YLoMxWhz4roN5CQjE9k",
@@ -265,15 +285,31 @@
    "price": 0.00007089,
    "score": 22,
    "rc": 1,
+   "checks": {
+    "h1": 286,
+    "h4": 286
+   },
+   "flags": {
+    "tp": true
+   },
+   "peak": 3.8595006347862886
+  },
+  {
+   "addr": "DkHsZ1kjd2Fua8sgKE6PhHhyCdXYscbDVN7mAfiGpump",
+   "symbol": "JENSEN",
+   "t": 1795232232441,
+   "price": 0.001618,
+   "score": 34,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-20",
-  "runs": 3,
-  "checked": 151,
-  "alerts": 9,
-  "sent": false
+  "runs": 4,
+  "checked": 199,
+  "alerts": 10,
+  "sent": true
  },
  "weekSent": null
 }
