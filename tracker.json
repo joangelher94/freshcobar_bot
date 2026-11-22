@@ -335,7 +335,8 @@
    "rc": 1,
    "checks": {
     "h1": -42.5,
-    "h4": -42.5
+    "h4": -42.5,
+    "h24": -99.9
    },
    "flags": {
     "sl": true
@@ -351,7 +352,8 @@
    "rc": 1,
    "checks": {
     "h1": -60.5,
-    "h4": -60.5
+    "h4": -60.5,
+    "h24": -86.7
    },
    "flags": {
     "sl": true
@@ -367,7 +369,8 @@
    "rc": 1,
    "checks": {
     "h1": -4,
-    "h4": -4
+    "h4": -4,
+    "h24": -100
    },
    "flags": {
     "sl": true
@@ -404,7 +407,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.6399241945672773
+   "peak": 0.9924194567277321
   },
   {
    "addr": "B1oGtkaVAVZkdtWV7SXrHnFkcWC1Kd45sYpy6RYTpump",
@@ -441,8 +444,8 @@
  ],
  "day": {
   "date": "2026-11-22",
-  "runs": 1,
-  "checked": 40,
+  "runs": 2,
+  "checked": 82,
   "alerts": 0,
   "sent": false
  },
