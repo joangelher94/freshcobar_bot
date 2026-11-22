@@ -386,7 +386,8 @@
    "rc": 1,
    "checks": {
     "h1": -16.9,
-    "h4": -48.9
+    "h4": -48.9,
+    "h24": -84
    },
    "flags": {
     "sl": true
@@ -440,13 +441,49 @@
     "sl": true
    },
    "peak": 0.002007665873645255
+  },
+  {
+   "addr": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+   "symbol": "FSDV15",
+   "t": 1795391226486,
+   "price": 0.002087,
+   "score": 82,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "ADs7gnpeYvkBLthYhqRcrVTeGSFQuqfYnv3PbS6Bpump",
+   "symbol": "XMAS",
+   "t": 1795391227953,
+   "price": 0.0001058,
+   "score": 77,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "BAKsQrynzwadyACDMsg3J5R8a4CTvj1u7kEYyjq7pump",
+   "symbol": "COPIUM",
+   "t": 1795391229417,
+   "price": 0.0006434,
+   "score": 39,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
+   "symbol": "cateball",
+   "t": 1795391230899,
+   "price": 0.002163,
+   "score": 24,
+   "rc": 1,
+   "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-22",
-  "runs": 2,
-  "checked": 82,
-  "alerts": 0,
+  "runs": 3,
+  "checked": 128,
+  "alerts": 4,
   "sent": false
  },
  "weekSent": null
