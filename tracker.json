@@ -237,7 +237,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.9304347826086956
+   "peak": 0.9934782608695651
   },
   {
    "addr": "BYKQkHKMWHidNBLQXgt7NX4PLUtJZRYGLWQYkJzPGenX",
@@ -380,15 +380,46 @@
    "price": 0.0001762,
    "score": 64,
    "rc": 1,
+   "checks": {
+    "h1": -16.9
+   },
+   "flags": {},
+   "peak": 0.8308740068104428
+  },
+  {
+   "addr": "3N6Mp8YQuVDfEtyuyJS72s4MRrgQuKY34gvYZD5Kpump",
+   "symbol": "PushCoin",
+   "t": 1795317340113,
+   "price": 0.001583,
+   "score": 77,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "B1oGtkaVAVZkdtWV7SXrHnFkcWC1Kd45sYpy6RYTpump",
+   "symbol": "GRAUDIA",
+   "t": 1795317341502,
+   "price": 0.0001572,
+   "score": 59,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "82mseLFauphc2yutbaDGgViahquJ1jGVLpyof99xpump",
+   "symbol": "STREETS",
+   "t": 1795317342882,
+   "price": 0.0007566,
+   "score": 30,
+   "rc": 31,
    "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-21",
-  "runs": 3,
-  "checked": 148,
-  "alerts": 4,
-  "sent": false
+  "runs": 4,
+  "checked": 194,
+  "alerts": 7,
+  "sent": true
  },
  "weekSent": null
 }
