@@ -456,7 +456,9 @@
     "h1": 12.4,
     "h4": 12.4
    },
-   "flags": {},
+   "flags": {
+    "sl": true
+   },
    "peak": 1.124101581217058
   },
   {
@@ -489,7 +491,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.6538700652782095
+   "peak": 1.1049114081442337
   },
   {
    "addr": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
@@ -502,7 +504,9 @@
     "h1": -22.8,
     "h4": -22.8
    },
-   "flags": {},
+   "flags": {
+    "sl": true
+   },
    "peak": 0.77207582061951
   },
   {
@@ -512,7 +516,14 @@
    "price": 0.000239,
    "score": 70,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -99.4,
+    "h4": -99.4
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.0057154811715481165
   },
   {
    "addr": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
@@ -521,15 +532,29 @@
    "price": 0.001539,
    "score": 62,
    "rc": 1,
+   "checks": {
+    "h1": 74.4,
+    "h4": 74.4
+   },
+   "flags": {},
+   "peak": 1.7439896036387266
+  },
+  {
+   "addr": "93uamrbDerKbUh8MSjNF1wDtxYvEUD1CS9BcHn1apump",
+   "symbol": "PumpMeme",
+   "t": 1795443974642,
+   "price": 0.001447,
+   "score": 55,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
-  "date": "2026-11-22",
-  "runs": 4,
-  "checked": 173,
-  "alerts": 6,
-  "sent": true
+  "date": "2026-11-23",
+  "runs": 1,
+  "checked": 36,
+  "alerts": 1,
+  "sent": false
  },
  "weekSent": "2026-11-22"
 }
