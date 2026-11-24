@@ -556,12 +556,13 @@
    "rc": 1,
    "checks": {
     "h1": -99.9,
-    "h4": -99.9
+    "h4": -99.9,
+    "h24": -99.9
    },
    "flags": {
     "sl": true
    },
-   "peak": 0.0010366275051831375
+   "peak": 0.0011534208707671045
   },
   {
    "addr": "Gy5BUDnpJMWRsNVKh9sRtsBGunFXKKrbroQRoydQpump",
@@ -577,7 +578,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.004577944179714091
+   "peak": 0.004611980939414568
   },
   {
    "addr": "HKiMA2mKQHU2cjfZ4Kbmru5GBGCauSNqPtpu8cfmpump",
@@ -602,14 +603,30 @@
    "price": 0.00005853,
    "score": 33,
    "rc": 1,
+   "checks": {
+    "h1": -77.2,
+    "h4": -77.2
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.2277464548094994
+  },
+  {
+   "addr": "5LDowscYVD3a6ZS4m8gCqG5nU16eLTwRXhciFi1bpump",
+   "symbol": "DONJENSEN",
+   "t": 1795555820661,
+   "price": 0.001245,
+   "score": 24,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-24",
-  "runs": 1,
-  "checked": 37,
-  "alerts": 1,
+  "runs": 2,
+  "checked": 91,
+  "alerts": 2,
   "sent": false
  },
  "weekSent": "2026-11-22"
