@@ -522,7 +522,8 @@
    "rc": 1,
    "checks": {
     "h1": -99.4,
-    "h4": -99.4
+    "h4": -99.4,
+    "h24": -100
    },
    "flags": {
     "sl": true
@@ -538,9 +539,12 @@
    "rc": 1,
    "checks": {
     "h1": 74.4,
-    "h4": 74.4
+    "h4": 74.4,
+    "h24": -99.8
    },
-   "flags": {},
+   "flags": {
+    "sl": true
+   },
    "peak": 1.7439896036387266
   },
   {
@@ -566,7 +570,14 @@
    "price": 0.0002938,
    "score": 85,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -99.5,
+    "h4": -99.5
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.004577944179714091
   },
   {
    "addr": "HKiMA2mKQHU2cjfZ4Kbmru5GBGCauSNqPtpu8cfmpump",
@@ -575,14 +586,30 @@
    "price": 0.0007185,
    "score": 32,
    "rc": 1,
+   "checks": {
+    "h1": -41.1,
+    "h4": -41.1
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.5894224077940153
+  },
+  {
+   "addr": "5JWeGmA9z6yHd5F9P6B23A8wthho8BpZuDmQv5DfLoat",
+   "symbol": "Scamsem",
+   "t": 1795520379986,
+   "price": 0.00005853,
+   "score": 33,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
-  "date": "2026-11-23",
-  "runs": 2,
-  "checked": 91,
-  "alerts": 3,
+  "date": "2026-11-24",
+  "runs": 1,
+  "checked": 37,
+  "alerts": 1,
   "sent": false
  },
  "weekSent": "2026-11-22"
