@@ -454,7 +454,8 @@
    "rc": 1,
    "checks": {
     "h1": 12.4,
-    "h4": 12.4
+    "h4": 12.4,
+    "h24": -99.9
    },
    "flags": {
     "sl": true
@@ -470,7 +471,8 @@
    "rc": 1,
    "checks": {
     "h1": -98.6,
-    "h4": -98.6
+    "h4": -98.6,
+    "h24": -98.6
    },
    "flags": {
     "sl": true
@@ -486,12 +488,13 @@
    "rc": 1,
    "checks": {
     "h1": -34.6,
-    "h4": -34.6
+    "h4": -34.6,
+    "h24": 15.9
    },
    "flags": {
     "sl": true
    },
-   "peak": 1.1049114081442337
+   "peak": 1.158843643145788
   },
   {
    "addr": "4npJ3avxnGhCzKbWQpLrQXAHsjWzKr4JqBsbu5Fspump",
@@ -502,7 +505,8 @@
    "rc": 1,
    "checks": {
     "h1": -22.8,
-    "h4": -22.8
+    "h4": -22.8,
+    "h24": -78.7
    },
    "flags": {
     "sl": true
@@ -523,7 +527,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.0057154811715481165
+   "peak": 0.006179916317991632
   },
   {
    "addr": "7cFiqdT46zs7ooHWLFiLSaSQKLMibtokh9dBinsspump",
@@ -546,14 +550,39 @@
    "price": 0.001447,
    "score": 55,
    "rc": 1,
+   "checks": {
+    "h1": -99.9,
+    "h4": -99.9
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.0010366275051831375
+  },
+  {
+   "addr": "Gy5BUDnpJMWRsNVKh9sRtsBGunFXKKrbroQRoydQpump",
+   "symbol": "Jesus",
+   "t": 1795484802403,
+   "price": 0.0002938,
+   "score": 85,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "HKiMA2mKQHU2cjfZ4Kbmru5GBGCauSNqPtpu8cfmpump",
+   "symbol": "JENSEN",
+   "t": 1795484803711,
+   "price": 0.0007185,
+   "score": 32,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-23",
-  "runs": 1,
-  "checked": 36,
-  "alerts": 1,
+  "runs": 2,
+  "checked": 91,
+  "alerts": 3,
   "sent": false
  },
  "weekSent": "2026-11-22"
