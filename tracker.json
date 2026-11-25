@@ -573,12 +573,13 @@
    "rc": 1,
    "checks": {
     "h1": -99.5,
-    "h4": -99.5
+    "h4": -99.5,
+    "h24": -99.5
    },
    "flags": {
     "sl": true
    },
-   "peak": 0.004611980939414568
+   "peak": 0.0046289993192648055
   },
   {
    "addr": "HKiMA2mKQHU2cjfZ4Kbmru5GBGCauSNqPtpu8cfmpump",
@@ -589,7 +590,8 @@
    "rc": 1,
    "checks": {
     "h1": -41.1,
-    "h4": -41.1
+    "h4": -41.1,
+    "h24": -99.8
    },
    "flags": {
     "sl": true
@@ -619,15 +621,40 @@
    "price": 0.001245,
    "score": 24,
    "rc": 1,
+   "checks": {
+    "h1": -99.8,
+    "h4": -99.8
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.0018313253012048195
+  },
+  {
+   "addr": "HyXjbs37EKU1QPKm2MnSQ3YaxNCugdh2W8bktSfYpump",
+   "symbol": "Manlet",
+   "t": 1795581155131,
+   "price": 0.00009562,
+   "score": 78,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "CkwFsrupdFHzo5kYk8b5W47CVx1v5ymzeu6BBoDjpump",
+   "symbol": "YUMA",
+   "t": 1795581156482,
+   "price": 0.0001575,
+   "score": 67,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-24",
-  "runs": 2,
-  "checked": 91,
-  "alerts": 2,
-  "sent": false
+  "runs": 3,
+  "checked": 146,
+  "alerts": 4,
+  "sent": true
  },
  "weekSent": "2026-11-22"
 }
