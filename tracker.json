@@ -624,12 +624,13 @@
    "rc": 1,
    "checks": {
     "h1": -99.8,
-    "h4": -99.8
+    "h4": -99.8,
+    "h24": -99.7
    },
    "flags": {
     "sl": true
    },
-   "peak": 0.0018313253012048195
+   "peak": 0.003114859437751004
   },
   {
    "addr": "HyXjbs37EKU1QPKm2MnSQ3YaxNCugdh2W8bktSfYpump",
@@ -661,14 +662,23 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.009453968253968255
+   "peak": 0.010012698412698412
+  },
+  {
+   "addr": "3gmFG4sFDJErDV8pacFrL2uUPXeGJTYLjfRy4hFypump",
+   "symbol": "NORFEATH",
+   "t": 1795649028617,
+   "price": 0.000707,
+   "score": 64,
+   "rc": 1,
+   "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-25",
-  "runs": 1,
-  "checked": 52,
-  "alerts": 0,
+  "runs": 2,
+  "checked": 121,
+  "alerts": 1,
   "sent": false
  },
  "weekSent": "2026-11-22"
