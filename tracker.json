@@ -675,9 +675,12 @@
    "rc": 1,
    "checks": {
     "h1": -11.4,
-    "h4": -11.4
+    "h4": -11.4,
+    "h24": -99.8
    },
-   "flags": {},
+   "flags": {
+    "sl": true
+   },
    "peak": 0.8862800565770864
   },
   {
@@ -710,7 +713,7 @@
    "flags": {
     "tp": true
    },
-   "peak": 5.865238424326193
+   "peak": 6.290946786454734
   },
   {
    "addr": "Bnw5JRPek5JvJhzUiB9yrs2cmzt4bLeFqSRzDzSppump",
@@ -723,7 +726,9 @@
     "h1": 34.1,
     "h4": 34.1
    },
-   "flags": {},
+   "flags": {
+    "sl": true
+   },
    "peak": 1.3409742120343842
   },
   {
@@ -745,8 +750,8 @@
  ],
  "day": {
   "date": "2026-11-26",
-  "runs": 2,
-  "checked": 114,
+  "runs": 3,
+  "checked": 165,
   "alerts": 4,
   "sent": false
  },
