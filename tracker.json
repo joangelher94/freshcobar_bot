@@ -687,7 +687,14 @@
    "price": 0.0001033,
    "score": 68,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -98.6,
+    "h4": -98.6
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.013939980638915779
   },
   {
    "addr": "Fo2HAwr7ZAUM2bSZ7MWSi16e3aWGpbw5MsUDYCttpump",
@@ -696,7 +703,14 @@
    "price": 0.001447,
    "score": 51,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": 486.5,
+    "h4": 486.5
+   },
+   "flags": {
+    "tp": true
+   },
+   "peak": 5.865238424326193
   },
   {
    "addr": "Bnw5JRPek5JvJhzUiB9yrs2cmzt4bLeFqSRzDzSppump",
@@ -705,7 +719,12 @@
    "price": 0.001047,
    "score": 49,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": 34.1,
+    "h4": 34.1
+   },
+   "flags": {},
+   "peak": 1.3409742120343842
   },
   {
    "addr": "6HS1aeSk7osT5B1CzLp1HTRTAweFr5wurfMHS4vppump",
@@ -714,13 +733,20 @@
    "price": 0.00101,
    "score": 34,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -99.8,
+    "h4": -99.8
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.0018841584158415842
   }
  ],
  "day": {
   "date": "2026-11-26",
-  "runs": 1,
-  "checked": 67,
+  "runs": 2,
+  "checked": 114,
   "alerts": 4,
   "sent": false
  },
