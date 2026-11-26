@@ -641,12 +641,13 @@
    "rc": 1,
    "checks": {
     "h1": -98.6,
-    "h4": -98.6
+    "h4": -98.6,
+    "h24": -98.5
    },
    "flags": {
     "sl": true
    },
-   "peak": 0.013982430453879943
+   "peak": 0.014568081991215228
   },
   {
    "addr": "CkwFsrupdFHzo5kYk8b5W47CVx1v5ymzeu6BBoDjpump",
@@ -657,12 +658,13 @@
    "rc": 1,
    "checks": {
     "h1": -99.1,
-    "h4": -99.1
+    "h4": -99.1,
+    "h24": -99
    },
    "flags": {
     "sl": true
    },
-   "peak": 0.010012698412698412
+   "peak": 0.010063492063492064
   },
   {
    "addr": "3gmFG4sFDJErDV8pacFrL2uUPXeGJTYLjfRy4hFypump",
@@ -671,14 +673,55 @@
    "price": 0.000707,
    "score": 64,
    "rc": 1,
+   "checks": {
+    "h1": -11.4,
+    "h4": -11.4
+   },
+   "flags": {},
+   "peak": 0.8862800565770864
+  },
+  {
+   "addr": "4VMwK3shXxsaMbiJ4qtBMMEgi63riezBSWFHfA6Vpump",
+   "symbol": "FRITZ",
+   "t": 1795670031380,
+   "price": 0.0001033,
+   "score": 68,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "Fo2HAwr7ZAUM2bSZ7MWSi16e3aWGpbw5MsUDYCttpump",
+   "symbol": "PUMPCHAN",
+   "t": 1795670032739,
+   "price": 0.001447,
+   "score": 51,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "Bnw5JRPek5JvJhzUiB9yrs2cmzt4bLeFqSRzDzSppump",
+   "symbol": "UHI",
+   "t": 1795670034084,
+   "price": 0.001047,
+   "score": 49,
+   "rc": 1,
+   "checks": {}
+  },
+  {
+   "addr": "6HS1aeSk7osT5B1CzLp1HTRTAweFr5wurfMHS4vppump",
+   "symbol": "Grodia",
+   "t": 1795670035469,
+   "price": 0.00101,
+   "score": 34,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
-  "date": "2026-11-25",
-  "runs": 2,
-  "checked": 121,
-  "alerts": 1,
+  "date": "2026-11-26",
+  "runs": 1,
+  "checked": 67,
+  "alerts": 4,
   "sent": false
  },
  "weekSent": "2026-11-22"
