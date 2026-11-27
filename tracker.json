@@ -715,7 +715,7 @@
    "flags": {
     "tp": true
    },
-   "peak": 9.239806496199034
+   "peak": 9.364201796821009
   },
   {
    "addr": "Bnw5JRPek5JvJhzUiB9yrs2cmzt4bLeFqSRzDzSppump",
@@ -758,14 +758,30 @@
    "price": 0.0001506,
    "score": 78,
    "rc": 1,
+   "checks": {
+    "h1": -98.6,
+    "h4": -98.6
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.013539176626826029
+  },
+  {
+   "addr": "F5LxbqJxAMrvfxLbqPckErmqNyiPzDJMUXnX8vrhpump",
+   "symbol": "KITT",
+   "t": 1795793576347,
+   "price": 0.00008815,
+   "score": 67,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-27",
-  "runs": 1,
-  "checked": 50,
-  "alerts": 1,
+  "runs": 2,
+  "checked": 82,
+  "alerts": 2,
   "sent": false
  },
  "weekSent": "2026-11-22"
