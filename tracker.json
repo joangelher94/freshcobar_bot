@@ -692,7 +692,8 @@
    "rc": 1,
    "checks": {
     "h1": -98.6,
-    "h4": -98.6
+    "h4": -98.6,
+    "h24": -98.6
    },
    "flags": {
     "sl": true
@@ -708,12 +709,13 @@
    "rc": 1,
    "checks": {
     "h1": 486.5,
-    "h4": 486.5
+    "h4": 486.5,
+    "h24": 824
    },
    "flags": {
     "tp": true
    },
-   "peak": 6.290946786454734
+   "peak": 9.239806496199034
   },
   {
    "addr": "Bnw5JRPek5JvJhzUiB9yrs2cmzt4bLeFqSRzDzSppump",
@@ -724,7 +726,8 @@
    "rc": 1,
    "checks": {
     "h1": 34.1,
-    "h4": 34.1
+    "h4": 34.1,
+    "h24": -99.9
    },
    "flags": {
     "sl": true
@@ -740,19 +743,29 @@
    "rc": 1,
    "checks": {
     "h1": -99.8,
-    "h4": -99.8
+    "h4": -99.8,
+    "h24": -99.8
    },
    "flags": {
     "sl": true
    },
    "peak": 0.0018841584158415842
+  },
+  {
+   "addr": "4tPsVjDAqgDjb5TzGazEDMvM2GK2xDvCG2LxpX8opump",
+   "symbol": "VOLALITY",
+   "t": 1795757872468,
+   "price": 0.0001506,
+   "score": 78,
+   "rc": 1,
+   "checks": {}
   }
  ],
  "day": {
-  "date": "2026-11-26",
-  "runs": 3,
-  "checked": 165,
-  "alerts": 4,
+  "date": "2026-11-27",
+  "runs": 1,
+  "checked": 50,
+  "alerts": 1,
   "sent": false
  },
  "weekSent": "2026-11-22"
