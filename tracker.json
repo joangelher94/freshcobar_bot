@@ -1,58 +1,6 @@
 {
  "alerts": [
   {
-   "addr": "HVxXzEt87QszpC95kMKAfrHdboj4K1TVxYNMzwmbpump",
-   "symbol": "apocry ",
-   "t": 1795161574761,
-   "price": 0.00008454,
-   "score": 52,
-   "rc": 1,
-   "checks": {
-    "h1": -92.1,
-    "h4": -92.1,
-    "h24": -92.2
-   },
-   "flags": {
-    "sl": true
-   },
-   "peak": 0.1648923586467944
-  },
-  {
-   "addr": "HF2RBPrfNBk9TxggL2cYZFEKSgirzh5HKCngLENTpump",
-   "symbol": "LOOSY",
-   "t": 1795161576089,
-   "price": 0.001176,
-   "score": 47,
-   "rc": 1,
-   "checks": {
-    "h1": 119.9,
-    "h4": 119.9,
-    "h24": -99.9
-   },
-   "flags": {
-    "tp": true,
-    "sl": true
-   },
-   "peak": 2.1989795918367347
-  },
-  {
-   "addr": "44DZsPNJUtUyTkELAFYdwCpe82sEt12HZKrMgK1Spump",
-   "symbol": "iAgent",
-   "t": 1795161577416,
-   "price": 0.001543,
-   "score": 36,
-   "rc": 1,
-   "checks": {
-    "h1": -99.9,
-    "h4": -99.9,
-    "h24": -99.9
-   },
-   "flags": {
-    "sl": true
-   },
-   "peak": 0.001342838626053143
-  },
-  {
    "addr": "GRMRQSkBGg2Cc8Y9GePNBcJVk49YepWkXUDQBXAMpump",
    "symbol": "RUDY",
    "t": 1795193041114,
@@ -607,7 +555,8 @@
    "rc": 1,
    "checks": {
     "h1": -98.6,
-    "h4": -98.6
+    "h4": -98.6,
+    "h24": -98.7
    },
    "flags": {
     "sl": true
@@ -642,7 +591,7 @@
     "h4": -9.6
    },
    "flags": {},
-   "peak": 0.9043176394011716
+   "peak": 1.639618138424821
   },
   {
    "addr": "Xb6V46U9hHHxiJnoAFxiEqEh59owzdt1ZL9q5zpVSoL",
@@ -658,7 +607,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.09074557187971989
+   "peak": 0.11035287656185636
   },
   {
    "addr": "B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump",
@@ -674,7 +623,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.611961057023644
+   "peak": 0.7253902024416629
   },
   {
    "addr": "GGatn9GfrvRgFMFZy9ZSaTsKmpwnzCTogmocLHCjpump",
@@ -683,15 +632,22 @@
    "price": 0.0001151,
    "score": 68,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -98.5,
+    "h4": -98.5
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.01468288444830582
   }
  ],
  "day": {
-  "date": "2026-11-27",
-  "runs": 4,
-  "checked": 179,
-  "alerts": 6,
-  "sent": true
+  "date": "2026-11-28",
+  "runs": 1,
+  "checked": 45,
+  "alerts": 0,
+  "sent": false
  },
  "weekSent": "2026-11-22"
 }
