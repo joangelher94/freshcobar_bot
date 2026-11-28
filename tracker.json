@@ -1,57 +1,6 @@
 {
  "alerts": [
   {
-   "addr": "7q3j8jkgGzVuk7pcQ2uQqWaFwyYzJiCanoRdBtHHpump",
-   "symbol": "COOKIE",
-   "t": 1795136271634,
-   "price": 0.0000834,
-   "score": 67,
-   "rc": 1,
-   "checks": {
-    "h1": -75.7,
-    "h4": -75.7,
-    "h24": -94.1
-   },
-   "flags": {
-    "sl": true
-   },
-   "peak": 0.24268585131894485
-  },
-  {
-   "addr": "8SacNb6sgiAcscRe4m915B6nL9XX55dk8FS7L532pump",
-   "symbol": "AI",
-   "t": 1795136272961,
-   "price": 0.00005855,
-   "score": 53,
-   "rc": 1,
-   "checks": {
-    "h1": 105.1,
-    "h4": 105.1,
-    "h24": 66
-   },
-   "flags": {
-    "tp": true
-   },
-   "peak": 2.444064901793339
-  },
-  {
-   "addr": "DEgAkPNxz3dtMsesD2FDkNA2S6sch5YWfGUDT7R2pump",
-   "symbol": "BUCKME",
-   "t": 1795136274286,
-   "price": 0.0002846,
-   "score": 52,
-   "rc": 7,
-   "checks": {
-    "h1": -48.4,
-    "h4": -48.4,
-    "h24": -52.5
-   },
-   "flags": {
-    "sl": true
-   },
-   "peak": 0.5888966971187632
-  },
-  {
    "addr": "HVxXzEt87QszpC95kMKAfrHdboj4K1TVxYNMzwmbpump",
    "symbol": "apocry ",
    "t": 1795161574761,
@@ -613,7 +562,7 @@
    "flags": {
     "tp": true
    },
-   "peak": 11.057360055286802
+   "peak": 12.128541810642709
   },
   {
    "addr": "Bnw5JRPek5JvJhzUiB9yrs2cmzt4bLeFqSRzDzSppump",
@@ -679,7 +628,7 @@
    "flags": {
     "sl": true
    },
-   "peak": 0.022098695405558703
+   "peak": 0.02342597844583097
   },
   {
    "addr": "GXjSWDoMQkDEbhon9ALxz8chUUsVKg3x8V3NajjDpump",
@@ -688,7 +637,12 @@
    "price": 0.0004609,
    "score": 78,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -9.6,
+    "h4": -9.6
+   },
+   "flags": {},
+   "peak": 0.9043176394011716
   },
   {
    "addr": "Xb6V46U9hHHxiJnoAFxiEqEh59owzdt1ZL9q5zpVSoL",
@@ -697,7 +651,14 @@
    "price": 0.00007283,
    "score": 57,
    "rc": 1,
-   "checks": {}
+   "checks": {
+    "h1": -90.9,
+    "h4": -90.9
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.09074557187971989
   },
   {
    "addr": "B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump",
@@ -706,15 +667,31 @@
    "price": 0.0006471,
    "score": 49,
    "rc": 1,
+   "checks": {
+    "h1": -38.8,
+    "h4": -38.8
+   },
+   "flags": {
+    "sl": true
+   },
+   "peak": 0.611961057023644
+  },
+  {
+   "addr": "GGatn9GfrvRgFMFZy9ZSaTsKmpwnzCTogmocLHCjpump",
+   "symbol": "Frogger",
+   "t": 1795841940877,
+   "price": 0.0001151,
+   "score": 68,
+   "rc": 1,
    "checks": {}
   }
  ],
  "day": {
   "date": "2026-11-27",
-  "runs": 3,
-  "checked": 132,
-  "alerts": 5,
-  "sent": false
+  "runs": 4,
+  "checked": 179,
+  "alerts": 6,
+  "sent": true
  },
  "weekSent": "2026-11-22"
 }
